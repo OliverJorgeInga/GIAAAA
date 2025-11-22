@@ -18,16 +18,20 @@
 
     body {
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  /* Elimina el bloqueo de scroll */
+  overflow-x: hidden;
+  overflow-y: auto; /* permitir scroll vertical */
+
+  min-height: 100%; /* No amarrar a 100vh */
   background: radial-gradient(circle at top, #ffe6ff 0%, #ffc6ff 25%, #ffa6ff 55%, #7f5dff 100%);
-  overflow: hidden;
   color: #fff;
 
-  /* 👇 Esto es lo importante */
-  padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  /* Quitar el centrado vertical, o causa problemas al scroll */
+  display: block;
+
+  /* Resolver la barra inferior de iPhone */
+  padding-bottom: calc(20px + env(safe-area-inset-bottom));
 }
 
     /* Confeti canvas */
